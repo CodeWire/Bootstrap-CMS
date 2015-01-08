@@ -1,17 +1,12 @@
 <?php
 
-/**
- * This file is part of Bootstrap CMS by Graham Campbell.
+/*
+ * This file is part of Bootstrap CMS.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * (c) Graham Campbell <graham@mineuk.com>
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 /*
@@ -40,7 +35,7 @@ require __DIR__.'/../bootstrap/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../bootstrap/start.php';
+$app = require_once __DIR__.'/../bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -54,4 +49,10 @@ $app = require_once __DIR__.'/../bootstrap/start.php';
 |
 */
 
-$app->run();
+$kernel = $app->make('Illuminate\Contracts\Http\Kernel');
+
+$response = $kernel->handle($request = Illuminate\Http\Request::capture());
+
+$response->send();
+
+$kernel->terminate($request, $response);

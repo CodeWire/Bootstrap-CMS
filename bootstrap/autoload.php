@@ -1,17 +1,12 @@
 <?php
 
-/**
- * This file is part of Bootstrap CMS by Graham Campbell.
+/*
+ * This file is part of Bootstrap CMS.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * (c) Graham Campbell <graham@mineuk.com>
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 define('LARAVEL_START', microtime(true));
@@ -41,47 +36,8 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-if (file_exists($compiled = __DIR__.'/compiled.php')) {
-    require $compiled;
-}
+$compiledPath = __DIR__.'/../storage/framework/compiled.php';
 
-/*
-|--------------------------------------------------------------------------
-| Setup Patchwork UTF-8 Handling
-|--------------------------------------------------------------------------
-|
-| The Patchwork library provides solid handling of UTF-8 strings as well
-| as provides replacements for all mb_* and iconv type functions that
-| are not available by default in PHP. We'll setup this stuff here.
-|
-*/
-
-Patchwork\Utf8\Bootup::initMbstring();
-
-/*
-|--------------------------------------------------------------------------
-| Register The Laravel Auto Loader
-|--------------------------------------------------------------------------
-|
-| We register an auto-loader "behind" the Composer loader that can load
-| model classes on the fly, even if the autoload files have not been
-| regenerated for the application. We'll add it to the stack here.
-|
-*/
-
-Illuminate\Support\ClassLoader::register();
-
-/*
-|--------------------------------------------------------------------------
-| Register The Workbench Loaders
-|--------------------------------------------------------------------------
-|
-| The Laravel workbench provides a convenient place to develop packages
-| when working locally. However we will need to load in the Composer
-| auto-load files for the packages so that these can be used here.
-|
-*/
-
-if (is_dir($workbench = __DIR__.'/../workbench')) {
-    Illuminate\Workbench\Starter::start($workbench);
+if (file_exists($compiledPath)) {
+    require $compiledPath;
 }

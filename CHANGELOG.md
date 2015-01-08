@@ -2,12 +2,40 @@ CHANGE LOG
 ==========
 
 
-## V1.0 Beta 1 (Upcoming - August/September 2014)
+## V0.9 Alpha (Upcoming)
 
-* Bugfixes
+* Upgraded to laravel 5.0
+* Upgraded to bootstrap 3.3.1
+* Renamed providers to repositories
+* Removed dependency on laravel database
+* Cleaned up models and providers
+* Cleaned up assets
 
 
-## V0.8 Alpha (Upcoming - August 2014)
+## V0.8.3 Alpha (Upcoming)
+
+* Updated dependencies
+* Removed the extra symfony dependencies
+
+
+## V0.8.2 Alpha (12/11/2014)
+
+* Updated dependencies
+* Fixed some flash messages
+* Fixed the datetime picker
+* Patched the laravel csrf vulnerability
+
+
+## V0.8.1 Alpha (24/10/2014)
+
+* Asset updates
+* Improved the test suite
+* Presenter fixes and cleanup
+* Started committing composer.lock
+* Other minor fixes
+
+
+## V0.8 Alpha (12/08/2014)
 
 * Upgrade to Laravel 4.2
 * Updated to Bootstrap 3.2

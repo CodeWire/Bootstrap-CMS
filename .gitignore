@@ -1,5 +1,4 @@
-/bootstrap/compiled.php
+/.idea
 /vendor
-composer.lock
-.env.*.php
-.env.php
+phpunit.xml
+.env
